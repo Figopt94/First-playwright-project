@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test('Valid login Automation exercice', async ({ page }) => {
   await page.goto('https://automationexercise.com/login');
 
-  await page.getByRole('button', { name: 'Consentir' }).click();
+  await page.locator('.fc-button.fc-cta-consent.fc-primary-button').click();
   //await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 
   // Create a name locator.
