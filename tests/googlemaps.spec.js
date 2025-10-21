@@ -5,9 +5,9 @@ test('Google Maps search and directions - simple', async ({ page }) => {
   await page.goto('https://www.google.com/maps');
 
   // Aceitar cookies se o botão aparecer
-  const acceptButton = page.locator('span:has-text("Aceitar tudo")').first();
-  if (await acceptButton.isVisible()) {
-    await acceptButton.click();
+  const consentButton = page.getByRole('button', { name: 'Consent' });
+  if (await consentButton.isVisible()) {
+  await consentButton.click();
   }
 
   // Digitar "Dublin" na caixa de busca
