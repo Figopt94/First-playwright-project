@@ -4,7 +4,10 @@ import { test, expect } from '@playwright/test';
 test('Valid login Automation exercice', async ({ page }) => {
   await page.goto('https://automationexercise.com/login');
 
-  await page.locator('.fc-button.fc-cta-consent.fc-primary-button').click();
+  const consentButton = page.locator('.fc-button.fc-cta-consent.fc-primary-button');
+  if (await consentButton.isVisible({ timeout: 5000 })) {
+    await consentButton.click();
+  }
   //await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 
   // Create a locator.
