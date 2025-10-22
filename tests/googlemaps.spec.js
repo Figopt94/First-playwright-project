@@ -13,7 +13,7 @@ test('Google Maps search and directions - simple', async ({ page }) => {
   // Digitar "Dublin" na caixa de busca
   const searchBox = page.getByRole('combobox', { name: 'Pesquisar no Google Maps' });
   await searchBox.fill('Dublin');
-  await searchBox.press('Enter');
+  await page.keyboard.press('Enter');
 
   // Esperar título "Dublin" aparecer
   const headline = page.locator('h1:has-text("Dublin")');
