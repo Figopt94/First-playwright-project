@@ -5,13 +5,13 @@ test('Google Maps search and directions - simple', async ({ page }) => {
   await page.goto('https://www.google.com/maps');
 
   // Aceitar cookies se o botão aparecer
-  const consentButton = page.getByRole('button', { name: 'Consent' });
+  const consentButton = page.getByRole('button', { name: 'Aceitar tudo' });
   if (await consentButton.isVisible()) {
   await consentButton.click();
   }
 
   // Digitar "Dublin" na caixa de busca
-  const searchBox = page.locator('#searchboxinput');
+  const searchBox = page.getByRole('combobox', { name: 'Pesquisar no Google Maps' });
   await searchBox.fill('Dublin');
   await searchBox.press('Enter');
 
